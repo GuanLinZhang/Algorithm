@@ -1,9 +1,18 @@
 package LeetCode;
 
 public class DuplicateNum {
-    public int removeDuplicateElem(int[] arr) {
+    public int removeDuplicates(int[] nums) {
 
+        int number = 0;//标记计数
+        for (int i = 0; i < nums.length ; i++) {
+            if ( nums[i] != nums[number] ) {
+                number++;
+                nums[number] = nums[i];
+            }
 
-        return 0;
+        }
+        return number += 1;
     }
 }
+
+
