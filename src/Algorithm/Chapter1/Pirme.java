@@ -1,8 +1,8 @@
-package AlgorithmAndDataStructure.Chapter1;
+package Algorithm.Chapter1;
 
-public class Integer {
+public class Pirme {
     public boolean isPrime(int num) {
-        //任何小于2的数都不是素数
+//任何小于2的数都不是素数
         if (num < 2) return false;
         //声明计数器
         int i = 2;

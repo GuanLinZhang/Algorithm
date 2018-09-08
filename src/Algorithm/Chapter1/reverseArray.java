@@ -1,6 +1,6 @@
-package AlgorithmAndDataStructure.Chapter1;
+package Algorithm.Chapter1;
 
-public class Array {
+public class reverseArray {
     public int[] reverse(int[] arr) {
         for (int i = 0; i < arr.length / 2; i++) {
             int temp = arr[i];
