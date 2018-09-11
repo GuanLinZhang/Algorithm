@@ -1,22 +1,14 @@
 package Algorithm.Chapter1;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
-        var stack = new ResizingArrayStack<String>();
+        int a[] = {-11,22,11,-22,32,44,66,17,33,55};
+        var example = new NSum(a);
 
-        for (int i = 0; i < 10; i++) {
-            stack.push(String.valueOf(i));
-        }
-
-        for (int i = 0; i < 5; i++) {
-            stack.pop();
-        }
-
-        for (var i : stack) {
-            System.out.println(i);
-        }
-
-        stack.push("fuck");
-        System.out.println(stack.size());
+        int result = example.ThreeSumFast();
+        System.out.println(result);
     }
 }
