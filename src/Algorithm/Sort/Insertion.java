@@ -1,6 +1,6 @@
 package Algorithm.Sort;
 
-public class Insertion extends Example {
+public class Insertion extends Template {
     @Override
     public void sort(Comparable[] a) {
         for (int i = 0; i < a.length - 1; i++) {

@@ -1,6 +1,7 @@
 package Algorithm.Sort;
 
-public abstract class Example {
+// Template For All Sort Algorithm
+public abstract class Template {
     public abstract void sort(Comparable[] a);
 
     public static boolean less(Comparable v,Comparable w) {

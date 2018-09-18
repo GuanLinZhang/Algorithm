@@ -1,7 +1,7 @@
 package Algorithm.Sort;
 
 
-public class Selection extends Example {
+public class Selection extends Template {
     @Override
     public void sort(Comparable a[]) {
         int N = a.length;

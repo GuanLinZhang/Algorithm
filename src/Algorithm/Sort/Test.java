@@ -7,7 +7,7 @@ public class Test {
         var sortInstance = new Insertion();
         sortInstance.sort(a);
 
-        Example.printAll(a);
-        System.out.println(Example.isSorted(a));;
+        Templete.printAll(a);
+        System.out.println(Templete.isSorted(a));;
     }
 }
