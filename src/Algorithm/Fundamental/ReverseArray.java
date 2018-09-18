@@ -1,4 +1,4 @@
-package Algorithm.Chapter1;
+package Algorithm.Fundamental;
 
 public class ReverseArray {
     public int[] reverse(int[] arr) {

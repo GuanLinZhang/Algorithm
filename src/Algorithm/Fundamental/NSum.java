@@ -1,4 +1,4 @@
-package Algorithm.Chapter1;
+package Algorithm.Fundamental;
 
 public class NSum {
     private int a[];
@@ -8,7 +8,7 @@ public class NSum {
     }
 
     private boolean containsDuplicates() {
-        for (int i = 0; i < a.length - 1; i++) {
+        for (int i = 0; i < a.length; i++) {
             if (a[i] == a[i + 1]) {
                 System.out.println(i);
                 System.out.println(i + 1);

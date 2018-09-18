@@ -1,4 +1,4 @@
-package Algorithm.Chapter1;
+package Algorithm.Fundamental;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

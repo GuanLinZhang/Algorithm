@@ -1,4 +1,4 @@
-package Algorithm.Chapter1;
+package Algorithm.Fundamental;
 
 public class Pirme {
     public boolean isPrime(int num) {
