@@ -9,7 +9,7 @@ public class Test {
 
         Template.printAll(a);
         System.out.println(Template.isSorted(a));*/
-        var fuck = new Quick();
+        var fuck = new Bubble();
         Integer[] a = {23, 11, 55, 22, 31, 64, 1, 7};
         fuck.sort(a);
         Template.printAll(a);
