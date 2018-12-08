@@ -1,5 +1,6 @@
 package Algorithm.Search;
 
+import Algorithm.Fundamental.Queue;
 import java.util.NoSuchElementException;
 
 public class BST<Key extends Comparable<Key>,Value> {
@@ -11,7 +12,7 @@ public class BST<Key extends Comparable<Key>,Value> {
         private Node left, right;  // left and right subtrees
         private int N;          // number of nodes in subtree
 
-        public Node(Key key, Value val,int N) {
+        public Node(Key key, Value val, int N) {
             this.key = key;
             this.value = val;
             this.N = N;
@@ -38,8 +39,7 @@ public class BST<Key extends Comparable<Key>,Value> {
     private Node put(Node x, Key key, Value value) {
         if(x == null) return new Node(key,value,1);
         int cmp = key.compareTo(x.key);
-
-        if     (cmp < 0) x.left = put(x.left,key,value);
+        if     (cmp < 0) x.left  = put(x.left,key,value);
         else if(cmp > 0) x.right = put(x.right, key, value);
         else             x.value = value;
 
@@ -158,4 +158,83 @@ public class BST<Key extends Comparable<Key>,Value> {
         else if (cmp > 0) return 1 + size(x.left) + rank(key,x.right);
         else              return size(x.left);
     }
+
+    public void delete(Key key) {
+        root = delete(root,key);
+    }
+
+    private Node delete(Node x, Key key) {
+        if(x == null) return null;
+        int cmp = key.compareTo(x.key);
+
+        if     (cmp > 0) x.right = delete(x.right,key);
+        else if(cmp < 0) x.left  = delete(x.left,key);
+        else {
+            //if left subtree or right subtree is null then,just let the parent node point to the opposite node;
+            //or two pointed node both are null, then just let the parent node point to null;
+            if(x.left  == null) return x.right;
+            if(x.right == null) return x.left;
+            //the node deleted has two subNode which are both not null
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left  = t.left;
+            x.N = size(x.left) + size(x.right) + 1;
+        }
+        return x;
+    }
+    public void preOrderTraversal() {
+        preOrderTraversal(root);
+    }
+
+    public void preOrderTraversal(Node x) {
+        if (x == null) return;
+        preOrderTraversal(x.left);
+        System.out.println(x.key + " " + x.value);
+        preOrderTraversal(x.right);
+    }
+
+
+    public Iterable<Key> keys() {
+        return keys(min(),max());
+    }
+
+    public Iterable<Key> keys(Key lo, Key hi) {
+        Queue<Key> queue = new Queue<>();
+        keys(root,queue,lo,hi);
+        return queue;
+    }
+
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) return;
+        int cmpLow  = lo.compareTo(x.key);
+        int cmpHigh = hi.compareTo(x.key);
+        if (cmpLow < 0) keys(x.left, queue, lo, hi);
+        if (cmpLow <= 0 && cmpHigh >= 0) queue.enQueue(x.key);
+        if (cmpHigh > 0) keys(x.right, queue, lo, hi);
+    }
+
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node x) {
+        if(x == null) return -1;
+        return 1 + Math.max(height(x.left), height(x.right));
+    }
+
+
+    public void reverse() {
+        root = reverse(root);
+    }
+
+    private Node reverse(Node x) {
+        if (x == null) return null;
+        Node temp = reverse(x.left);
+        x.left = reverse(x.right);
+        x.right = temp;
+        return x;
+    }
+
+
 }

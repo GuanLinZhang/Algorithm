@@ -51,15 +51,18 @@ public class Queue<E> implements Iterable<E> {
     }
 
     private class QueueIterator implements Iterator<E> {
+        private Node current = first;
 
         @Override
         public boolean hasNext() {
-            return false;
+           return current != null;
         }
 
         @Override
         public E next() {
-            return null;
+            E elem = current.elem;
+            current = current.next;
+            return elem;
         }
     }
 }
